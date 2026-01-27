@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sem Neura | Psicologia Prática</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.ibb.co/7t9nmnN5/Captura-de-Tela-2026-01-27-a-s-13-53-39-removebg-preview.png" type="image/png">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Babel Standalone -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <script>
       tailwind.config = {
         theme: {
@@ -17,13 +28,13 @@
             },
             colors: {
               petrol: {
-                800: '#114B5F', // Azul Petróleo customizado
+                800: '#114B5F', // Azul Petróleo
                 900: '#0D3B4C',
               },
               softYellow: {
                 100: '#FFF9C4',
                 200: '#FFF59D', // Amarelo suave
-                400: '#FDD835', // Destaque suave
+                400: '#FDD835', // Destaque
               },
               pastel: {
                 blue: '#E3F2FD',
@@ -35,29 +46,27 @@
       }
     </script>
     <style>
-      /* Smooth scrolling for anchor links */
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
+      html { scroll-behavior: smooth; }
+      body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     </style>
-  <script type="importmap">
+    
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
     <noscript>Você precisa habilitar o JavaScript para ver esta página.</noscript>
-    <script type="module" src="./index.tsx"></script>
+    
+    <!-- Importante: data-type="module" e extensão explícita .tsx -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   </body>
 </html>
