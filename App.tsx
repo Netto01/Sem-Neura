@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { 
   Brain, Menu, X, ArrowRight, Sparkles, Quote, 
   Sun, BatteryCharging, Compass, ArrowUpRight, 
-  Instagram, Mail, Send, Award, BookOpen, Cpu
+  Instagram, Mail, Send, MapPin, Phone
 } from 'lucide-react';
 
 // --- Header Component ---
-const Header = () => {
+const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -33,11 +33,12 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2 group">
-          <img 
-            src="https://i.ibb.co/7N24FsBQ/Sem-Neura.png" 
-            alt="Sem Neura Logo" 
-            className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
-          />
+          <div className="p-2 bg-petrol-800 rounded-lg text-white transform group-hover:rotate-12 transition-transform duration-300">
+            <Brain size={24} strokeWidth={2.5} />
+          </div>
+          <span className="text-xl font-bold text-petrol-900 tracking-tight">
+            Sem Neura
+          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -86,7 +87,7 @@ const Header = () => {
 };
 
 // --- Hero Component ---
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <section id="inicio" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-pastel-blue rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
@@ -116,7 +117,7 @@ const Hero = () => {
               <ArrowRight size={20} />
             </a>
             <a href="#sobre" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-petrol-800 border border-slate-200 font-bold rounded-full text-lg transition-all">
-              Conheça o Especialista
+              Saiba mais
             </a>
           </div>
 
@@ -129,7 +130,7 @@ const Hero = () => {
                  <div className="w-2 h-2 bg-petrol-800 rounded-full group-hover:scale-150 transition-transform"></div> + Leveza
                </div>
                <div className="text-xl font-bold text-slate-300 flex items-center gap-2 group cursor-default">
-                 <div className="w-2 h-2 bg-softYellow-400 rounded-full group-hover:scale-150 transition-transform"></div> + Inovação
+                 <div className="w-2 h-2 bg-softYellow-400 rounded-full group-hover:scale-150 transition-transform"></div> + Foco
                </div>
                <div className="text-xl font-bold text-slate-300 flex items-center gap-2 group cursor-default">
                  <div className="w-2 h-2 bg-slate-400 rounded-full group-hover:scale-150 transition-transform"></div> - Ansiedade
@@ -143,7 +144,7 @@ const Hero = () => {
 };
 
 // --- About Component ---
-const About = () => {
+const About: React.FC = () => {
   return (
     <section id="sobre" className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -155,50 +156,37 @@ const About = () => {
               
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Arlindo Gonçalves - Psicólogo e Pesquisador" 
+                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                  alt="Psicóloga do Sem Neura" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               
-              <div className="absolute bottom-4 -right-4 bg-petrol-800 text-white p-4 rounded-2xl shadow-lg max-w-[180px] animate-bounce-slow">
-                <p className="text-xs font-bold leading-tight">CRP 23/3158</p>
-                <p className="text-[10px] opacity-80 mt-1">Psicologia baseada em evidências</p>
+              <div className="absolute bottom-4 -right-4 bg-petrol-800 text-white p-4 rounded-2xl shadow-lg max-w-[150px] animate-bounce-slow">
+                <p className="text-xs font-bold leading-tight">Psicologia baseada em evidências</p>
               </div>
             </div>
           </div>
 
           <div className="w-full lg:w-1/2 order-1 lg:order-2 text-center lg:text-left">
-            <span className="text-petrol-800 font-semibold tracking-wider uppercase text-sm mb-2 block">Especialista</span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-petrol-900 mb-2">
-              Arlindo Gonçalves
+            <h2 className="text-3xl lg:text-4xl font-bold text-petrol-900 mb-6">
+              Sobre o Projeto
             </h2>
-            <p className="text-lg text-slate-500 font-medium mb-6">Psicólogo e Pesquisador</p>
             
-            <div className="prose prose-slate text-slate-600 leading-relaxed text-lg">
-               <p className="mb-4">
-                 Atuando na região de Palmas (TO), vinculo minha prática clínica a uma sólida formação acadêmica. Sou integrante do <strong>Programa de Pós-Graduação em Desenvolvimento Regional (PGDRA)</strong> da Universidade Federal do Tocantins (UFT).
-               </p>
-
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-start gap-3">
-                    <Award className="text-petrol-800 min-w-[20px] mt-1" size={20} />
-                    <p className="text-sm">Desenvolvedor de ferramenta informatizada para correção da <strong>Escala WISC</strong>, otimizando a avaliação psicológica.</p>
-                 </div>
-                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-start gap-3">
-                    <BookOpen className="text-petrol-800 min-w-[20px] mt-1" size={20} />
-                    <p className="text-sm">Experiência em <strong>Psicologia Jurídica</strong>, atuando como perito e assistente técnico em estudos psicossociais.</p>
-                 </div>
-                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-start gap-3 col-span-1 md:col-span-2">
-                    <Cpu className="text-petrol-800 min-w-[20px] mt-1" size={20} />
-                    <p className="text-sm">Pesquisador sobre o uso de <strong>Inteligência Artificial (IA)</strong> em intervenções grupais e saúde mental sistêmica.</p>
-                 </div>
-               </div>
-
-               <p>
-                 Minha missão é trazer a inovação técnica para o cuidado humano, garantindo um atendimento ético, preciso e acolhedor.
+            <div className="relative">
+               <Quote className="absolute -top-6 -left-6 text-softYellow-200 opacity-50 transform -scale-x-100" size={60} />
+               <p className="text-xl md:text-2xl font-medium text-slate-700 leading-relaxed italic relative z-10">
+                 "Menos neura, mais ação. Ferramentas práticas para dominar o estresse e fortalecer sua saúde mental."
                </p>
             </div>
+
+            <p className="mt-8 text-slate-600 leading-relaxed text-lg">
+              O <span className="font-semibold text-petrol-800">Sem Neura</span> nasceu da necessidade de traduzir conceitos complexos da psicologia para o dia a dia. Acreditamos que o autoconhecimento não precisa ser um processo doloroso ou solitário. 
+            </p>
+
+            <p className="mt-4 text-slate-600 leading-relaxed text-lg">
+              Aqui, unimos ciência e empatia para ajudar você a construir uma rotina que funcione para a <em>sua</em> realidade, respeitando seus limites e potencializando suas qualidades.
+            </p>
           </div>
         </div>
       </div>
@@ -207,7 +195,7 @@ const About = () => {
 };
 
 // --- Features Component ---
-const Features = () => {
+const Features: React.FC = () => {
   const features = [
     {
       icon: <Sun className="text-petrol-800" size={32} />,
@@ -276,8 +264,8 @@ const Features = () => {
   );
 };
 
-// --- Contact Section ---
-const ContactSection = () => {
+// --- Contact Section (New) ---
+const ContactSection: React.FC = () => {
   return (
     <section id="contato" className="py-24 bg-white border-t border-slate-100">
       <div className="container mx-auto px-6">
@@ -288,7 +276,7 @@ const ContactSection = () => {
               Vamos conversar?
             </h2>
             <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-              Tem alguma dúvida sobre os conteúdos ou quer agendar um atendimento? Mande uma mensagem, vamos adorar te ouvir.
+              Tem alguma dúvida sobre os conteúdos ou quer saber mais sobre atendimentos? Mande uma mensagem, vamos adorar te ouvir.
             </p>
             
             <div className="space-y-6">
@@ -339,17 +327,14 @@ const ContactSection = () => {
 };
 
 // --- Footer Component ---
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-petrol-900 text-slate-300 py-12 border-t border-petrol-800">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
           <div className="flex items-center gap-2 text-white">
-            <img 
-              src="https://i.ibb.co/7N24FsBQ/Sem-Neura.png" 
-              alt="Sem Neura Logo" 
-              className="h-10 w-auto object-contain bg-white rounded-lg px-2 py-1" 
-            />
+            <Brain size={24} />
+            <span className="text-xl font-bold">Sem Neura</span>
           </div>
           
           <div className="flex gap-6">
@@ -358,7 +343,7 @@ const Footer = () => {
           </div>
 
           <p className="flex items-center gap-1 opacity-70">
-            &copy; {new Date().getFullYear()}. Feito com <span className="text-red-400">♥</span> por Arlindo Gonçalves.
+            &copy; {new Date().getFullYear()}. Feito com <span className="text-red-400">♥</span>.
           </p>
         </div>
       </div>
@@ -367,7 +352,7 @@ const Footer = () => {
 };
 
 // --- Main App Component ---
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-softYellow-200 selection:text-petrol-900">
       <Header />
